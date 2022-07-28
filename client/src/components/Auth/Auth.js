@@ -75,10 +75,27 @@ const SignUp = () => {
                         { isSignup ? 'Sign Up' : 'Sign In' }
                     </Button>
                     <GoogleLogin
-                      clientId='' 
+                      clientId='305564946779-isuea526oiirb3ubi0nukvubg93qdc77.apps.googleusercontent.com'
+                      render={(renderProps) => (
+                        <Button className={classes.googleButton} color='primary' fullWidth onClick={renderProps.onClick} disabled={renderProps.disabled} startIcon={<Icon />} variant='contained'>
+                            Google Sign In
+                        </Button>
+                      )}
+                      onSuccess={googleSuccess}
+                      onFailure={googleError}
+                      cookiePolicy='single_host_origin'
                     />
+                    <Grid container justify='flex-end'>
+                        <Grid item>
+                            <Button>
+                                { isSignup ? 'Already have an account? Sign In' : 'Dont have an account? Sign Up' }
+                            </Button>
+                        </Grid>
+                    </Grid>
                 </form>
             </Paper>
         </Container>
-    )
-}
+    );
+};
+
+export default SignUp;
